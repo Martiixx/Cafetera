@@ -172,16 +172,19 @@ public class Maquina implements ActionListener,MouseListener {
         this.vistaPrincipal.btn20000.setActionCommand("btn20000");
         this.vistaPrincipal.btn20000.addActionListener(this);
         
-        this.vistaPrincipal.GrupoAzucar.getSelection();
+        /*this.vistaPrincipal.GrupoAzucar.getSelection();
         this.vistaPrincipal.GrupoBebida.getSelection();
         this.vistaPrincipal.GrupoLeche.getSelection();
-        this.vistaPrincipal.GrupoSize.getSelection();
+        this.vistaPrincipal.GrupoSize.getSelection();*/
 
 
     }
     
       int monto=0;
-      int ValFinal = 0;
+      int ValProd = 0;
+      int ValAzucar = 0;
+      int ValLeche = 0;
+      int ValSize = 0;
     @Override
     public void actionPerformed(ActionEvent e) {
       
@@ -227,16 +230,15 @@ public class Maquina implements ActionListener,MouseListener {
                     JOptionPane.showMessageDialog(null,"Debe ingresar más dinero para adquirir el producto");
                 }
                 else {
-                   
-                    this.vistaPrincipal.btnPreparar.setEnabled(true);
-                    this.vistaPrincipal.GrupoAzucar.getSelection().getActionCommand();
-                    this.vistaPrincipal.GrupoBebida.getSelection().getActionCommand();
-                    this.vistaPrincipal.GrupoLeche.getSelection().getActionCommand();
-                    this.vistaPrincipal.GrupoSize.getSelection().getActionCommand();
-                    System.out.println(this.vistaPrincipal.GrupoAzucar.getSelection().getActionCommand());
-                    System.out.println(this.vistaPrincipal.GrupoBebida.getSelection().getActionCommand());
-                    System.out.println(this.vistaPrincipal.GrupoLeche.getSelection().getActionCommand());
-                    System.out.println(this.vistaPrincipal.GrupoSize.getSelection().getActionCommand());
+                   ValProd = 900;
+                   this.vistaPrincipal.Expresso.setEnabled(false);
+                   this.vistaPrincipal.Latte.setEnabled(true);
+                   this.vistaPrincipal.Capuchino.setEnabled(true);
+                   this.vistaPrincipal.Moka.setEnabled(true);
+                   this.vistaPrincipal.HotChoc.setEnabled(true);
+                   this.vistaPrincipal.txtValor.setText(Integer.toString(ValProd+ ValAzucar+ ValSize +ValLeche));
+                   this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
+                   this.vistaPrincipal.btnPreparar.setEnabled(true);
                     
                 }
                 break;
@@ -249,12 +251,15 @@ public class Maquina implements ActionListener,MouseListener {
                     JOptionPane.showMessageDialog(null,"Debe ingresar más dinero para adquirir el producto");
                 }
                 else{
-                    
-                    this.vistaPrincipal.btnPreparar.setEnabled(true);
-                    this.vistaPrincipal.GrupoAzucar.getSelection().getActionCommand();
-                    this.vistaPrincipal.GrupoBebida.getSelection().getActionCommand();
-                    this.vistaPrincipal.GrupoLeche.getSelection().getActionCommand();
-                    this.vistaPrincipal.GrupoSize.getSelection().getActionCommand();
+                   ValProd = 1300;
+                   this.vistaPrincipal.Expresso.setEnabled(true);
+                   this.vistaPrincipal.Latte.setEnabled(false);
+                   this.vistaPrincipal.Capuchino.setEnabled(true);
+                   this.vistaPrincipal.Moka.setEnabled(true);
+                   this.vistaPrincipal.HotChoc.setEnabled(true);
+                   this.vistaPrincipal.txtValor.setText(Integer.toString(ValProd+ ValAzucar+ ValSize +ValLeche));
+                   this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
+                   this.vistaPrincipal.btnPreparar.setEnabled(true);
                 }
                 break;
             case Capuchino:
@@ -266,12 +271,15 @@ public class Maquina implements ActionListener,MouseListener {
                     JOptionPane.showMessageDialog(null,"Debe ingresar más dinero para adquirir el producto");
                 }
                 else{
-                    
-                    this.vistaPrincipal.btnPreparar.setEnabled(true);
-                    this.vistaPrincipal.GrupoAzucar.getSelection().getActionCommand();
-                    this.vistaPrincipal.GrupoBebida.getSelection().getActionCommand();
-                    this.vistaPrincipal.GrupoLeche.getSelection().getActionCommand();
-                    this.vistaPrincipal.GrupoSize.getSelection().getActionCommand();
+                    ValProd = 1000;
+                   this.vistaPrincipal.Expresso.setEnabled(true);
+                   this.vistaPrincipal.Latte.setEnabled(true);
+                   this.vistaPrincipal.Capuchino.setEnabled(false);
+                   this.vistaPrincipal.Moka.setEnabled(true);
+                   this.vistaPrincipal.HotChoc.setEnabled(true);
+                   this.vistaPrincipal.txtValor.setText(Integer.toString(ValProd+ ValAzucar+ ValSize +ValLeche));
+                   this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
+                   this.vistaPrincipal.btnPreparar.setEnabled(true);
                 }
                 break;
             case Moka:
@@ -283,12 +291,15 @@ public class Maquina implements ActionListener,MouseListener {
                     JOptionPane.showMessageDialog(null,"Debe ingresar más dinero para adquirir el producto");
                 }
                 else{
-                   
-                    this.vistaPrincipal.btnPreparar.setEnabled(true);
-                    this.vistaPrincipal.GrupoAzucar.getSelection().getActionCommand();
-                    this.vistaPrincipal.GrupoBebida.getSelection().getActionCommand();
-                    this.vistaPrincipal.GrupoLeche.getSelection().getActionCommand();
-                    this.vistaPrincipal.GrupoSize.getSelection().getActionCommand();
+                   ValProd = 1500;
+                   this.vistaPrincipal.Expresso.setEnabled(true);
+                   this.vistaPrincipal.Latte.setEnabled(true);
+                   this.vistaPrincipal.Capuchino.setEnabled(true);
+                   this.vistaPrincipal.Moka.setEnabled(false);
+                   this.vistaPrincipal.HotChoc.setEnabled(true);
+                   this.vistaPrincipal.txtValor.setText(Integer.toString(ValProd+ ValAzucar+ ValSize +ValLeche));
+                   this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
+                   this.vistaPrincipal.btnPreparar.setEnabled(true);
                 }
                 break;
             case HotChoc:
@@ -301,68 +312,102 @@ public class Maquina implements ActionListener,MouseListener {
                 }
                 
                 else{
-                    
-                    this.vistaPrincipal.btnPreparar.setEnabled(true);
-                    this.vistaPrincipal.GrupoAzucar.getSelection().getActionCommand();
-                    this.vistaPrincipal.GrupoBebida.getSelection().getActionCommand();
-                    this.vistaPrincipal.GrupoLeche.getSelection().getActionCommand();
-                    this.vistaPrincipal.GrupoSize.getSelection().getActionCommand();
+                   ValProd = 800;
+                   this.vistaPrincipal.Expresso.setEnabled(true);
+                   this.vistaPrincipal.Latte.setEnabled(true);
+                   this.vistaPrincipal.Capuchino.setEnabled(true);
+                   this.vistaPrincipal.Moka.setEnabled(true);
+                   this.vistaPrincipal.HotChoc.setEnabled(false);
+                   this.vistaPrincipal.txtValor.setText(Integer.toString(ValProd+ ValAzucar+ ValSize +ValLeche));
+                   this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
+                   this.vistaPrincipal.btnPreparar.setEnabled(true);
                 }
                 break;
             case SizeS:
-                 ValFinal = ValFinal + 0;
-                 this.vistaPrincipal.txtValor.setText(Integer.toString(ValFinal));
+                 ValSize = 0;
                  this.vistaPrincipal.SizeS.setEnabled(false);
                  this.vistaPrincipal.SizeM.setEnabled(true);
                  this.vistaPrincipal.SizeL.setEnabled(true);
-                 this.vistaPrincipal.txtVuelto.setText("$"+Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-ValFinal));
+                 this.vistaPrincipal.txtValor.setText(Integer.toString(ValProd+ ValAzucar+ ValSize +ValLeche));
+                 this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
                  break;
                 
             case SizeM:
-                ValFinal = ValFinal +100;
-                this.vistaPrincipal.txtValor.setText(Integer.toString(ValFinal));
+                ValSize  = 100;
                 this.vistaPrincipal.SizeS.setEnabled(true);
-                 this.vistaPrincipal.SizeM.setEnabled(false);
-                 this.vistaPrincipal.SizeL.setEnabled(true);
-                 this.vistaPrincipal.txtVuelto.setText("$"+Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-ValFinal));
-                 ValFinal = 0;
-                 break;
+                this.vistaPrincipal.SizeM.setEnabled(false);
+                this.vistaPrincipal.SizeL.setEnabled(true);
+                this.vistaPrincipal.txtValor.setText(Integer.toString(ValProd+ ValAzucar+ ValSize +ValLeche));
+                this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
+                break;
                  
             case SizeL:
-                ValFinal = ValFinal +150;
-                this.vistaPrincipal.txtValor.setText(Integer.toString(ValFinal));
+                ValSize  = 150;
                 this.vistaPrincipal.SizeS.setEnabled(true);
-                 this.vistaPrincipal.SizeM.setEnabled(true);
-                 this.vistaPrincipal.SizeL.setEnabled(false);
-                 this.vistaPrincipal.txtVuelto.setText("$"+Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-ValFinal));
-                 break;
+                this.vistaPrincipal.SizeM.setEnabled(true);
+                this.vistaPrincipal.SizeL.setEnabled(false);
+                this.vistaPrincipal.txtValor.setText(Integer.toString(ValProd+ ValAzucar+ ValSize +ValLeche));
+                this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
+                break;
             case rdbSLeche:
-                ValFinal = ValFinal +0;
-                this.vistaPrincipal.txtValor.setText(Integer.toString(ValFinal));
+                ValLeche = 0;
+                this.vistaPrincipal.rdbSLeche.setEnabled(false);
+                this.vistaPrincipal.LecheE1.setEnabled(true);
+                this.vistaPrincipal.LecheD.setEnabled(true);
+                this.vistaPrincipal.LecheS.setEnabled(true);
+                this.vistaPrincipal.txtValor.setText(Integer.toString(ValProd+ ValAzucar+ ValSize +ValLeche));
+                this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
                 break;
             case LecheE1:
-                ValFinal = ValFinal +100;
-                this.vistaPrincipal.txtValor.setText(Integer.toString(ValFinal));
+                ValLeche = 100;
+                this.vistaPrincipal.rdbSLeche.setEnabled(true);
+                this.vistaPrincipal.LecheE1.setEnabled(false);
+                this.vistaPrincipal.LecheD.setEnabled(true);
+                this.vistaPrincipal.LecheS.setEnabled(true);
+                this.vistaPrincipal.txtValor.setText(Integer.toString(ValProd+ ValAzucar+ ValSize +ValLeche));
+                this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
                 break;
             case LecheD:
-                ValFinal = ValFinal +200;
-                this.vistaPrincipal.txtValor.setText(Integer.toString(ValFinal));
+                ValLeche = 200;
+                this.vistaPrincipal.rdbSLeche.setEnabled(true);
+                this.vistaPrincipal.LecheE1.setEnabled(true);
+                this.vistaPrincipal.LecheD.setEnabled(false);
+                this.vistaPrincipal.LecheS.setEnabled(true);
+                this.vistaPrincipal.txtValor.setText(Integer.toString(ValProd+ ValAzucar+ ValSize +ValLeche));
+                this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
                 break;
             case LecheS:
-                ValFinal = ValFinal +500;
-                this.vistaPrincipal.txtValor.setText(Integer.toString(ValFinal));
+                ValLeche = 500;
+                this.vistaPrincipal.rdbSLeche.setEnabled(true);
+                this.vistaPrincipal.LecheE1.setEnabled(true);
+                this.vistaPrincipal.LecheD.setEnabled(true);
+                this.vistaPrincipal.LecheS.setEnabled(false);
+                this.vistaPrincipal.txtValor.setText(Integer.toString(ValProd+ ValAzucar+ ValSize +ValLeche));
+                this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
                 break;
             case SAzucar:
-                ValFinal = ValFinal +0;
-                this.vistaPrincipal.txtValor.setText(Integer.toString(ValFinal));
+                ValAzucar = 0;
+                this.vistaPrincipal.SAzucar.setEnabled(false);
+                this.vistaPrincipal.CAzucar.setEnabled(true);
+                this.vistaPrincipal.EAzucar.setEnabled(true);
+                this.vistaPrincipal.txtValor.setText(Integer.toString(ValProd+ ValAzucar+ ValSize +ValLeche));
+                this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
                 break;
             case CAzucar:
-                ValFinal = ValFinal +50;
-                this.vistaPrincipal.txtValor.setText(Integer.toString(ValFinal));
+                ValAzucar = 50;
+                this.vistaPrincipal.SAzucar.setEnabled(true);
+                this.vistaPrincipal.CAzucar.setEnabled(false);
+                this.vistaPrincipal.EAzucar.setEnabled(true);
+                this.vistaPrincipal.txtValor.setText(Integer.toString(ValProd+ ValAzucar+ ValSize +ValLeche));
+                this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
                 break;
             case EAzucar:
-                ValFinal = ValFinal +100;
-                this.vistaPrincipal.txtValor.setText(Integer.toString(ValFinal));
+                ValAzucar = 100;
+                this.vistaPrincipal.SAzucar.setEnabled(true);
+                this.vistaPrincipal.CAzucar.setEnabled(true);
+                this.vistaPrincipal.EAzucar.setEnabled(false);
+                this.vistaPrincipal.txtValor.setText(Integer.toString(ValProd+ ValAzucar+ ValSize +ValLeche));
+                this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
                 break;
        }
         
