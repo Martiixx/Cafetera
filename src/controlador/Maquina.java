@@ -68,7 +68,9 @@ public class Maquina implements ActionListener,MouseListener {
         GrupoLeche,
         GrupoAzucar,
         GrupoCafe,
-        GrupoSize
+        GrupoSize,
+        //Boton de pedido
+        btnPreparar
     }
     
     /** Inicia todos las acciones y listener de la vista */
@@ -137,15 +139,9 @@ public class Maquina implements ActionListener,MouseListener {
         this.vistaPrincipal.EAzucar.setActionCommand("EAzucar");
         this.vistaPrincipal.EAzucar.addActionListener(this);
         
-        //Escuchamos textbox
-        this.vistaPrincipal.txtValor.setActionCommand("txtValor");
-        this.vistaPrincipal.txtValor.addActionListener(this);
-        
-        this.vistaPrincipal.txtVuelto.setActionCommand("txtVuelto");
-        this.vistaPrincipal.txtVuelto.addActionListener(this);
-        
-        this.vistaPrincipal.txtImporte.setActionCommand("txtImporte");
-        this.vistaPrincipal.txtImporte.addActionListener(this);
+        //Escuchamos botón de pedido
+        this.vistaPrincipal.btnPreparar.setActionCommand("btnPreparar");
+        this.vistaPrincipal.btnPreparar.addActionListener(this);
         
         //Escuchamos botones de monto
         this.vistaPrincipal.btn50.setActionCommand("btn50");
@@ -172,6 +168,7 @@ public class Maquina implements ActionListener,MouseListener {
         this.vistaPrincipal.btn20000.setActionCommand("btn20000");
         this.vistaPrincipal.btn20000.addActionListener(this);
         
+        //Esto es de Martin...no entiendo el manejo de grupos
         /*this.vistaPrincipal.GrupoAzucar.getSelection();
         this.vistaPrincipal.GrupoBebida.getSelection();
         this.vistaPrincipal.GrupoLeche.getSelection();
@@ -179,12 +176,16 @@ public class Maquina implements ActionListener,MouseListener {
 
 
     }
-    
+    //Variables de entorno, manejaran los datos y valores
       int monto=0;
       int ValProd = 0;
       int ValAzucar = 0;
       int ValLeche = 0;
       int ValSize = 0;
+      int producto = 0;
+      int tamano = 0;
+      int leche = 0;
+      int azucar = 0;
     @Override
     public void actionPerformed(ActionEvent e) {
       
@@ -230,6 +231,7 @@ public class Maquina implements ActionListener,MouseListener {
                     JOptionPane.showMessageDialog(null,"Debe ingresar más dinero para adquirir el producto");
                 }
                 else {
+                   producto=1;
                    ValProd = 900;
                    this.vistaPrincipal.Expresso.setEnabled(false);
                    this.vistaPrincipal.Latte.setEnabled(true);
@@ -251,6 +253,7 @@ public class Maquina implements ActionListener,MouseListener {
                     JOptionPane.showMessageDialog(null,"Debe ingresar más dinero para adquirir el producto");
                 }
                 else{
+                   producto=2;
                    ValProd = 1300;
                    this.vistaPrincipal.Expresso.setEnabled(true);
                    this.vistaPrincipal.Latte.setEnabled(false);
@@ -271,7 +274,8 @@ public class Maquina implements ActionListener,MouseListener {
                     JOptionPane.showMessageDialog(null,"Debe ingresar más dinero para adquirir el producto");
                 }
                 else{
-                    ValProd = 1000;
+                   producto=3;
+                   ValProd = 1000;
                    this.vistaPrincipal.Expresso.setEnabled(true);
                    this.vistaPrincipal.Latte.setEnabled(true);
                    this.vistaPrincipal.Capuchino.setEnabled(false);
@@ -291,6 +295,7 @@ public class Maquina implements ActionListener,MouseListener {
                     JOptionPane.showMessageDialog(null,"Debe ingresar más dinero para adquirir el producto");
                 }
                 else{
+                   producto=4;
                    ValProd = 1500;
                    this.vistaPrincipal.Expresso.setEnabled(true);
                    this.vistaPrincipal.Latte.setEnabled(true);
@@ -312,6 +317,7 @@ public class Maquina implements ActionListener,MouseListener {
                 }
                 
                 else{
+                   producto=5;
                    ValProd = 800;
                    this.vistaPrincipal.Expresso.setEnabled(true);
                    this.vistaPrincipal.Latte.setEnabled(true);
@@ -324,6 +330,7 @@ public class Maquina implements ActionListener,MouseListener {
                 }
                 break;
             case SizeS:
+                 tamano = 6;
                  ValSize = 0;
                  this.vistaPrincipal.SizeS.setEnabled(false);
                  this.vistaPrincipal.SizeM.setEnabled(true);
@@ -333,6 +340,7 @@ public class Maquina implements ActionListener,MouseListener {
                  break;
                 
             case SizeM:
+                tamano = 7;
                 ValSize  = 100;
                 this.vistaPrincipal.SizeS.setEnabled(true);
                 this.vistaPrincipal.SizeM.setEnabled(false);
@@ -342,6 +350,7 @@ public class Maquina implements ActionListener,MouseListener {
                 break;
                  
             case SizeL:
+                tamano = 8;
                 ValSize  = 150;
                 this.vistaPrincipal.SizeS.setEnabled(true);
                 this.vistaPrincipal.SizeM.setEnabled(true);
@@ -350,6 +359,7 @@ public class Maquina implements ActionListener,MouseListener {
                 this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
                 break;
             case rdbSLeche:
+                leche = 12;
                 ValLeche = 0;
                 this.vistaPrincipal.rdbSLeche.setEnabled(false);
                 this.vistaPrincipal.LecheE1.setEnabled(true);
@@ -359,6 +369,7 @@ public class Maquina implements ActionListener,MouseListener {
                 this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
                 break;
             case LecheE1:
+                leche = 13;
                 ValLeche = 100;
                 this.vistaPrincipal.rdbSLeche.setEnabled(true);
                 this.vistaPrincipal.LecheE1.setEnabled(false);
@@ -368,6 +379,7 @@ public class Maquina implements ActionListener,MouseListener {
                 this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
                 break;
             case LecheD:
+                leche = 14;
                 ValLeche = 200;
                 this.vistaPrincipal.rdbSLeche.setEnabled(true);
                 this.vistaPrincipal.LecheE1.setEnabled(true);
@@ -377,6 +389,7 @@ public class Maquina implements ActionListener,MouseListener {
                 this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
                 break;
             case LecheS:
+                leche = 15;
                 ValLeche = 500;
                 this.vistaPrincipal.rdbSLeche.setEnabled(true);
                 this.vistaPrincipal.LecheE1.setEnabled(true);
@@ -386,6 +399,7 @@ public class Maquina implements ActionListener,MouseListener {
                 this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
                 break;
             case SAzucar:
+                azucar = 9;
                 ValAzucar = 0;
                 this.vistaPrincipal.SAzucar.setEnabled(false);
                 this.vistaPrincipal.CAzucar.setEnabled(true);
@@ -394,6 +408,7 @@ public class Maquina implements ActionListener,MouseListener {
                 this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
                 break;
             case CAzucar:
+                azucar = 10;
                 ValAzucar = 50;
                 this.vistaPrincipal.SAzucar.setEnabled(true);
                 this.vistaPrincipal.CAzucar.setEnabled(false);
@@ -402,12 +417,27 @@ public class Maquina implements ActionListener,MouseListener {
                 this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
                 break;
             case EAzucar:
+                azucar = 11;
                 ValAzucar = 100;
                 this.vistaPrincipal.SAzucar.setEnabled(true);
                 this.vistaPrincipal.CAzucar.setEnabled(true);
                 this.vistaPrincipal.EAzucar.setEnabled(false);
                 this.vistaPrincipal.txtValor.setText(Integer.toString(ValProd+ ValAzucar+ ValSize +ValLeche));
                 this.vistaPrincipal.txtVuelto.setText(Integer.toString(Integer.parseInt(this.vistaPrincipal.txtImporte.getText())-(ValProd+ ValAzucar+ ValSize +ValLeche)));
+                break;
+            case btnPreparar:
+                int Precio = Integer.parseInt(this.vistaPrincipal.txtValor.getText());
+                java.util.Date fecha = new java.util.Date();
+                if (this.modelo.agregarRegistro(producto,tamano,leche,azucar,Precio,String.valueOf(fecha)) == true){
+                    JOptionPane.showMessageDialog(null,"Gracias x su compra. Disfrute su bebida");
+                    //Aca sugiero que chanten las instancias a metodo de descuento de stock
+                    //según producto seleccionado
+                    //PD: Faltan los controles graficos que tbm deberiamos llamarlos en este evento
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"Ha ocurrido un problema");
+                }
+               
                 break;
        }
         

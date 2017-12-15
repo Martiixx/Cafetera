@@ -24,19 +24,29 @@ public class Modelo extends Conexion {
         return false;
         
     }
-    /*1 cafe
-    2 chocolate
-    3 leche entera
-    4 leche descremada
-    5 leche soya
-    6 leche Almendra
-    7 azucar Rubia
-    8 Stevia
-    9 azucar Normal
-    10 vaso S
-    11 vaso M
-    12 vaso L
-    13 Extra Azucar(no pertenece al inventario) equivale al item azucar
+    /*
+    === weas de producto===
+    1 cafe Expresso
+    2 cafe Latte
+    3 cafe  Capuchino
+    4 cafe Moka
+    5 Chocolate Caliente
+    
+    ===weas de tamaño===
+    6 Pequeño vaso S
+    7 Mediano vaso M
+    8 Grande vaso L
+    
+    ====azucar ====
+    9 Sin azucar
+    10 Con Azucar
+    11 Extra Azucar(no pertenece al inventario) equivale al item azucar
+    
+    ===Lechita ===
+    12 Sin Leche
+    13 leche entera
+    14 leche descremada
+    15 leche soya
     */
     
     
