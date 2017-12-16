@@ -430,8 +430,10 @@ public class Maquina implements ActionListener,MouseListener {
                 java.util.Date fecha = new java.util.Date();
                 if (this.modelo.agregarRegistro(producto,tamano,leche,azucar,Precio,String.valueOf(fecha)) == true){
                     JOptionPane.showMessageDialog(null,"Gracias x su compra. Disfrute su bebida");
-                    //Aca sugiero que chanten las instancias a metodo de descuento de stock
-                    //según producto seleccionado
+                    if (this.modelo.modificarInventario(producto, tamano, leche, azucar)){
+                        //metodo de descuento de stock en base de datos, segun preparacion.
+                        // el stock está compuesto de dispensadores de cada materia prima, como cafe,chocolate,azucar,tamaño de vasos, y tipo de leche                        
+                    }                    
                     //PD: Faltan los controles graficos que tbm deberiamos llamarlos en este evento
                 }
                 else{
